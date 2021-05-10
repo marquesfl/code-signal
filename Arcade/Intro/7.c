@@ -17,24 +17,32 @@ typedef enum bool {false, true} bool;
 int find_position_of_not_increasing(arr_integer s) {
   /* Return the position in s which is not a increasing sequence */
   int i;
-  for(i = 0; i < s.size; i++)
+  for(i = 0; (i + 1) < s.size; i++)
     if(s.arr[i] >= s.arr[i + 1])
       break;
   return i;
 }
 
-bool is_increasing_case_rm_ith(arr_integer s, int i) {
-  /* Check case s is increasing removing element i_th. */
-  if(i == 0) return true;        /* Case i_th is the first element. */
-  if((i + 1) == s.size) return true; /* Case i_th is the last */
-  if(s.arr[i - 1] < s.arr[i + 1]) return true; /* Like rm i_th */
-  return false;
+bool is_sorted_from(arr_integer s, int i) {
+  /* Return true case s is sorted from position i */
+  for(; (i + 1) < s.size; i++)
+    if(s.arr[i] >= s.arr[i + 1])
+      return false;
+  return true;
 }
 
-bool is_sorted(arr_integer s, int i) {
-  /* Check if s is sorted by >. */
-  for(; (i + 1) < s.size; i++)   /* i + 1, in case last element. */
-    if(s.arr[i] >= s.arr[i + 1]) return false;
+bool is_sorted_without_pos(arr_integer s, int pos) {
+  int i;
+  for(i = 0; (i + 1) < s.size; i++) {
+    if(i == pos) continue;       /* Case i is pos, ignore  */
+    if(i + 1 == pos && i + 2 == s.size) return true; /* case pos is last */
+    if(i + 1 == pos) {                             /* Case next is pos */
+      if(s.arr[i] >= s.arr[i + 2]) return false;
+    }
+    else {
+      if(s.arr[i] >= s.arr[i + 1]) return false;
+    }
+  }
   return true;
 }
 
@@ -42,7 +50,8 @@ bool almostIncreasingSequence(arr_integer sequence) {
   /*Determine whether it is possible to obtain a strictly increasing
     sequence by removing no more than one element from the array.*/
   int idx = find_position_of_not_increasing(sequence);
-  if(is_increasing_case_rm_ith(sequence, idx))
-    return is_sorted(sequence, idx);
-  return false;
+  if(idx + 1 == sequence.size) return true; /* idx as last position */
+  if(idx == 0) return is_sorted_from(sequence, idx + 1); /* idx is first */
+  if(is_sorted_without_pos(sequence, idx)) return true;
+  return is_sorted_without_pos(sequence, idx + 1);
 }

@@ -23,6 +23,14 @@ int find_position_of_not_increasing(arr_integer s) {
   return i;
 }
 
+bool is_increasing_case_rm_ith(arr_integer s, int i) {
+  /* Check case s is increasing removing element i_th. */
+  if(i == 0) return true;        /* Case i_th is the first element. */
+  if((i + 1) == s.size) return true; /* Case i_th is the last */
+  if(s.arr[i - 1] < s.arr[i + 1]) return true; /* Like rm i_th */
+  return false;
+}
+
 bool is_sorted(arr_integer s, int i) {
   /* Check if s is sorted by >. */
   for(; (i + 1) < s.size; i++)   /* i + 1, in case last element. */
@@ -33,29 +41,8 @@ bool is_sorted(arr_integer s, int i) {
 bool almostIncreasingSequence(arr_integer sequence) {
   /*Determine whether it is possible to obtain a strictly increasing
     sequence by removing no more than one element from the array.*/
-  int i;
-  for(i = 1; i < sequence.size; i++)
-    if(sequence.arr[i - 1] >= sequence.arr[i]) {
-      if((i - 2) >= 0) {
-	if(sequence.arr[i - 2] >= sequence.arr[i]) {
-	  if((i + 1) < sequence.size) {
-	    if(sequence.arr[i - 1] >= sequence.arr[i + 1]) {
-	      return false;
-	    }
-	    else {
-	      i += 1;
-	      break;
-	    }
-	  }
-	}
-	else {
-	  break;
-	}
-      }
-      else {
-	break;
-      }
-    }
-
-  return is_sorted(sequence, i + 1);
+  int idx = find_position_of_not_increasing(sequence);
+  if(is_increasing_case_rm_ith(sequence, idx))
+    return is_sorted(sequence, idx);
+  return false;
 }

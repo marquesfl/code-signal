@@ -17,7 +17,7 @@ typedef enum bool {false, true} bool;
 int find_position_of_not_increasing(arr_integer s) {
   /* Return the position in s which is not a increasing sequence */
   int i;
-  for(i = 0; i < s.size - 1; i++)
+  for(i = 0; i < s.size; i++)
     if(s.arr[i] >= s.arr[i + 1])
       break;
   return i;

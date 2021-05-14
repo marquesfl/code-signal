@@ -7,7 +7,9 @@ std::string reverseInParentheses(std::string inputString) {
 
   while(std::regex_search(inputString, sm, inside_par)) {
     std::string tmp(sm[0]);
-    inputString = std::regex_replace(inputString, inside_par, std::string(tmp.rbegin()+1,tmp.rend()-1) + "$2");
+    inputString = std::regex_replace(inputString, inside_par,
+                                     std::string(tmp.rbegin()+1,tmp.rend()-1) + "$2",
+                                     std::regex_constants::format_first_only);
   }
   return inputString;
 }

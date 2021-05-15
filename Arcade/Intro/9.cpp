@@ -1,4 +1,5 @@
 std::vector<std::string> allLongestStrings(std::vector<std::string> inputArray) {
+  // alllongeststrings : [Str] -> [Str].
   // Return a list of biggest strings in inputArray.
 
   int max_str_len, curr_str_len;

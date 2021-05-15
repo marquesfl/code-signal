@@ -1,4 +1,5 @@
 int find_position_of_not_increasing(std::vector<int> s) {
+  // find_position_of_not_increasing : [Int] -> Int.
   // Return the position in s which is not a increasing sequence
   int i;
   for(i = 0; (i + 1) < s.size(); i++)
@@ -8,7 +9,8 @@ int find_position_of_not_increasing(std::vector<int> s) {
 }
 
 bool is_sorted_from(std::vector<int> s, int i) {
-  /* Return true case s is sorted from position i */
+  // is_sorted_from : [Int], Int -> Bool.
+  // Return true case s is sorted from position i./
   for(; (i + 1) < s.size(); i++)
     if(s[i] >= s[i + 1])
       return false;
@@ -16,8 +18,9 @@ bool is_sorted_from(std::vector<int> s, int i) {
 }
 
 bool almostIncreasingSequence(std::vector<int> sequence) {
-  /*Determine whether it is possible to obtain a strictly increasing
-    sequence by removing no more than one element from the array.*/
+  // almostIncreasingSequence : [Int] -> Bool.
+  // Determine whether it is possible to obtain a strictly increasing
+  // sequence by removing no more than one element from the array.
   int idx = find_position_of_not_increasing(sequence);
   if(idx == 0) return is_sorted_from(sequence, idx + 1); /* pos is 1st element */
   if((idx + 1) >= sequence.size() || (idx + 2) >= sequence.size()) return true; /* Or does not exist pos or pos is last */

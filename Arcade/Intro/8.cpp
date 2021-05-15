@@ -1,4 +1,5 @@
 int matrixElementsSum(std::vector<std::vector<int>> matrix) {
+  // matrixelementssum : [[Int]] -> Int.
   // Sum element of transpose matrix while not zero element.
   int i, j, s;
   s = 0;                        // To summation

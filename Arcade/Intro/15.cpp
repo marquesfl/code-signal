@@ -1,4 +1,5 @@
 std::vector<std::string> put_border(std::vector<string> a, char c) {
+  // put_border : [Str], Char -> [Str].
   // Put * at init and last string inside a."
   for(auto& s: a) {
     s.insert(0, std::string(1, c));
@@ -8,6 +9,7 @@ std::vector<std::string> put_border(std::vector<string> a, char c) {
 }
 
 std::vector<std::string> put_sup_border(std::vector<std::string> a, char c) {
+  // put_sup_border : [Str], Char -> [Str].
   // Put *'s as first and lasr line inside a, consider a as matrix of
   // chars.
   std::string insert_str(a[0].size(), c);
@@ -18,6 +20,7 @@ std::vector<std::string> put_sup_border(std::vector<std::string> a, char c) {
   
 
 std::vector<std::string> addBorder(std::vector<std::string> picture) {
+  // addBorder : [Str] -> [Str].
   // Given a rectangular matrix of characters, add a border of
   // asterisks(*) to it.
   const char c = '*';

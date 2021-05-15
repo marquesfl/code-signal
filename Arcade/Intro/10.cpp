@@ -1,4 +1,5 @@
 int commonCharacterCount(string s1, string s2) {
+  // commoncharactercount : Str, Str -> Int.
   // Count the numbers of common character between two strings.
   int count = 0;                // Counter of common chars
   for(auto& c : s1) {

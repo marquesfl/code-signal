@@ -1,6 +1,7 @@
 #include<vector>
 
 std::vector<int> sortByHeight(std::vector<int> a) {
+  // sortbyheight : [Int] -> [Int].
   // Sort a without sorting -1.
   for(int i = 0; i < a.size(); i++) { // adapt-inserctiosort
     if(a[i] == -1) continue;

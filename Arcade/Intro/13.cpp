@@ -1,6 +1,7 @@
 #include<regex>
 
 std::string reverseInParentheses(std::string inputString) {
+  // reverseinparentheses : Str -> Str.
   // Reverse string insides parentheses.
   std::regex inside_par("\\([^()]*\\)");
   std::smatch sm;

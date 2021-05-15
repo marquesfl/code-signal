@@ -1,6 +1,7 @@
 (defn reverseInParentheses [inputString]
-  "Reverse string inside parentheses.
-   Solution of luizsol."
+  "reverseinparentheses : Str -> Str.
+  Reverse string inside parentheses.
+  Solution of luizsol."
   (let [pattern (re-find #"\([^()]*\)" inputString)] ; Use regex to find the right most parentheses
     (if (nil? pattern) inputString
         (reverseInParentheses

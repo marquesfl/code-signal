@@ -1,3 +1,4 @@
 (defn centuryFromYear [year]
-  "Return the century of year."
+  "centuryfromyear : Int -> Int.
+   Return the century of year."
   (int (Math/ceil (/ year 100))))

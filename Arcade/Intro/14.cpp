@@ -1,4 +1,5 @@
 std::vector<int> alternatingSums(std::vector<int> a) {
+  // alternatingsums : [Int] -> [Int]
   // Alternating sum.
   bool flag = true;
   std::vector<int> sum_ = {0, 0};

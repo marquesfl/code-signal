@@ -1,3 +1,4 @@
 (defn checkPalindrome [inputString]
-  "Check palindrome of a string."
+  "checkpalindrome : Str -> Bool.
+   Check palindrome of a string."
   (= inputString (clojure.string/reverse inputString)))

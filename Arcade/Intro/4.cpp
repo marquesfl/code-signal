@@ -1,4 +1,5 @@
 int adjacentElementsProduct(std::vector<int> inputArray) {
+  // adjacentelementsproduct : [Int] -> Int.
   // Return the largest product of adjacent elements of an array.
   int max,                      // Temporary var for maximum value
     tmp;                        // Temporary var for speed the product

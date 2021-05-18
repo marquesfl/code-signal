@@ -1,7 +1,8 @@
 (defn arrayChange [inputArray]
   "arrayChange : [Int] -> Int.
    Increase by one the elements inside inputArray until its
-   increasing array."
+   increasing array.
+   By diko1"
   (loop [[first_ second_ & rest_] inputArray
          moves 0]
     (cond

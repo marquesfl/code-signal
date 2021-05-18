@@ -14,9 +14,9 @@ bool areSimilar(std::vector<int> a, std::vector<int> b) {
   // only one pair of it elements.
   int pos1, pos2;
   pos1 = diff_pos(a, b);
-  if(pos1 == -1) return true;
+  if(pos1 == -1) return true;    // Case a equal b.
   pos2 = diff_pos(a, b, pos1 + 1);
-  if(pos2 == -1) return false;
-  if(a[pos1] != b[pos2] || a[pos2] != b[pos1]) return false;
-  return diff_pos(a, b, pos2 + 1) == -1;
+  if(pos2 == -1) return false;   // Case just one element diff.
+  if(a[pos1] != b[pos2] || a[pos2] != b[pos1]) return false; // Do not swap as equal.
+  return diff_pos(a, b, pos2 + 1) == -1; // Check if has not another defirence.
 }

@@ -7,8 +7,10 @@
   "byte? : Str -> Bool.
   If str represent a byte value return true."
   (cond
-    (clojure.string/blank? str) false
-    (not (nil? (re-find #"[^0-9]" str))) false
+    (clojure.string/blank? str) false          ; Blank string
+    (not (nil? (re-find #"[^0-9]" str))) false ; Not a digit
+    (not (nil? (re-find #"^0\d+" str))) false  ; a 0 left, literally
+    (> (count str) 3) false                    ; number too large
     :otherwise (between? (Integer/parseInt str) 0 255)))
 
 (defn isIPv4Address [inputString]
